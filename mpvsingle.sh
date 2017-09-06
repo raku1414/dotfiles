@@ -1,5 +1,5 @@
 
-#!/bin/bash
+#!/bin/sh
 #need socat pidof mpv
 mpvsocket="/tmp/mpvsocket"
 tmpplaylist="/tmp/tl.m3u8"

@@ -13,8 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
-
+#font pango:monospace 8
+font pango:Ricty Diminished 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -154,6 +155,24 @@ bindsym $mod+r mode "resize"
 #bar {
 #        status_command i3status
 #}
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec --no-startup-id udiskie
 exec --no-startup-id fcitx
 for_window [class="^.*"] border none
+for_window [class="Wine"] floating enable
+bindsym $mod+m exec ~/dotfiles/mpvsingle.sh "$(xclip -o)"
+bindsym $mod+p exec ~/dotfiles/i3/urxvt-dropdown top
+for_window [instance="^urxvt dropdown$"] \
+  floating enable, sticky enable, move to scratchpad
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
+bar {
+  status_command i3status
+  mode hide
+  hidden_state hide
+  modifier $mod
+  }
+
+
