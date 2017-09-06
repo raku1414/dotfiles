@@ -2,7 +2,8 @@
 cp .dir_colors ~/
 cp .zshrc ~/ && source ~/.zshrc
 #cp .bashrc ~/ && source ~/.bashrc
-cp .Xdefaults ~/ && source ~/.Xdefaults
+cp .Xdefaults ~/ && xrdb ~/.Xdefaults
+cp .Xresources ~/ && xrdb ~/.Xresources
 cp -rf mpd ~/.config/
 rm -rf ~/.config/mpd/playlists
 mkdir -p ~/.config/mpd/playlists
