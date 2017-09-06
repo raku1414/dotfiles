@@ -11,4 +11,4 @@ touch ~/.config/mpd/log
 touch ~/.config/database
 cp -rf i3 ~/.config/
 cp -rf polybar ~/.config/
-cp mpvsingle.desktop .local/share/applications/
+cp mpvsingle.desktop ~/.local/share/applications/
