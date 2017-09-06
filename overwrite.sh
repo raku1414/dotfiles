@@ -1,7 +1,7 @@
-#!/bin/zsh
+#!/bin/sh
 cp .dir_colors ~/
 cp .zshrc ~/ && source ~/.zshrc
-cp .bashrc ~/ && source ~/.bashrc
+#cp .bashrc ~/ && source ~/.bashrc
 cp .Xdefaults ~/ && source ~/.Xdefaults
 cp -rf mpd ~/.config/
 rm -rf ~/.config/mpd/playlists
