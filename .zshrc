@@ -36,10 +36,15 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias start='sudo systemctl start'
 alias restart='sudo systemctl restart'
 alias stop='sudo systemctl stop'
+alias status='sudo systemctl status'
+alias start='sudo systemctl start'
+alias edit='sudo systmctl edit'
+alias killmstdn='sudo systemctl stop mastodon-web mastodon-streaming mastodon-sidekiq nginx postgresql redis'
+alias startmstdn='sudo systemctl start mastodon-web mastodon-streaming mastodon-sidekiq nginx postgresql redis'
 alias p='git commit -m "did" && git push origin master'
 alias restart_qjackctl='killall qjackctl && qjackctl &'
 alias joff=joff
 alias jon=jon
+
