@@ -1,11 +1,16 @@
-#!/bin/zsh
-eval $(dircolors ~/.dir_colors)
-zstyle ':completion:*' list-colors "${LS_COLORS}"
-PROMPT='[%F{magenta}%B%n%b%f@%F{blue}%U%m%u%f]# '
-RPROMPT='[%F{green}%d%f]'
-autoload -U compinit
-compinit
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '~/.zshrc'
 
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+alias vim='nvim'
 function joff() {
   if pidof qjackctl ; then
     killall qjackctl
@@ -40,9 +45,9 @@ alias restart='sudo systemctl restart'
 alias stop='sudo systemctl stop'
 alias status='sudo systemctl status'
 alias start='sudo systemctl start'
-alias edit='sudo systmctl edit'
-alias killmstdn='sudo systemctl stop mastodon-web mastodon-streaming mastodon-sidekiq nginx postgresql redis'
-alias startmstdn='sudo systemctl start mastodon-web mastodon-streaming mastodon-sidekiq nginx postgresql redis'
+alias edit='sudo systmctl edit --full'
+alias killmstdn='sudo systemctl stop mastodon-web mastodon-streaming mastodon-sidekiq'
+alias startmstdn='sudo systemctl start mastodon-web mastodon-streaming mastodon-sidekiq'
 alias p='git commit -m "did" && git push origin master'
 alias restart_qjackctl='killall qjackctl && qjackctl &'
 alias joff=joff
