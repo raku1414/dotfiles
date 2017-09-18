@@ -1,0 +1,14 @@
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+#Entry for /dev/sdc2 :
+UUID=f49fb93a-4537-4fb6-8ae6-ac594efabde0	/	ext4	defaults,noatime,discard	0	1
+#Entry for /dev/sdc1 :
+UUID=3076-197A	/boot	vfat	defaults,noatime	0	0
+#Entry for /dev/sdb1 :
+UUID=0C0A63F80A63DD68	/run/media/bobant/sdrive	ntfs-3g	uid=bobarch,gid=users,dmask=022,fmask=133,locale=ja_JP.UTF-8	0	0
+#Entry for /dev/sdc3 :
+UUID=c7b560a7-2cfb-43d1-a4a6-293d61a0d991	swap	swap	defaults	0	0
+
+
