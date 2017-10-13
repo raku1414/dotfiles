@@ -159,23 +159,30 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id udiskie
 exec --no-startup-id fcitx
 exec_always --no-startup-id ~/dotfiles/wacomset.sh
-exec --no-startup-id nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DVI-I-1: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}"
+#exec --no-startup-id nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DVI-I-1: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}"
 exec --no-startup-id xset r rate 200 50
-#for_window [class="^.*"] border none
+for_window [class="^.*"] border none
 for_window [class="Wine"] floating enable
+for_window [class="qjackctl"] floating enable
+for_window [class="qsampler"] floating enable
+for_window [class="truecraft"] floating enable
 bindsym $mod+m exec ~/dotfiles/mpvsingle.sh "$(xclip -o)"
 bindsym $mod+p exec ~/dotfiles/i3/urxvt-dropdown top
 for_window [instance="^urxvt dropdown$"] \
   floating enable, sticky enable, move to scratchpad
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 -q sset Master 3%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 -q sset Master 3%-
-bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c $(cat /proc/asound/cards | grep "\[PCH" |cut -c 2) -q sset Master 3%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c $(cat /proc/asound/cards | grep "\[PCH" |cut -c 2) -q sset Master 3%-
+bindsym XF86AudioMute exec --no-startup-id amixer -c $(cat /proc/asound/cards | grep "\[PCH" |cut -c 2) -q sset Master toggle
 bar {
   status_command i3status
   mode hide
   hidden_state hide
   modifier $mod
   }
-bindsym Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+#bindsym Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym Print exec scrot -u '%Y-%m-%d_%h_%s_$wx$h_scrot.jpg' -e 'mv $f ~/Pictures/'
 
+gaps inner 18
+gaps outer 0
+exec --no-startup-id nitrogen --restore

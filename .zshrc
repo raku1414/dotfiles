@@ -52,4 +52,14 @@ alias p='git commit -m "did" && git push origin master'
 alias restart_qjackctl='killall qjackctl && qjackctl &'
 alias joff=joff
 alias jon=jon
+SEASTAR="/home/bobarch/seastar"
+alias sb='c++ `pkg-config --cflags --libs $SEASTAR/build/release/seastar.pc`'
+alias g='gpg --recv-keys'
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"

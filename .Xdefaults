@@ -36,9 +36,8 @@ URxvt*scrollBar_right:   false
 
 URxvt*transparent:       false
 
-URxvt.font: xft:Ricty:pixelsize=14
+URxvt.font: xft:Ricty:pixelsize=16, -wuncon-siji-medium-r-normal--12-100-75-75-c-80-iso10646-1
 URxvt.letterSpace: 0
 
 *antialias:  true
 *autohint:   false
-
